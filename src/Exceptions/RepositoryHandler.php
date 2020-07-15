@@ -61,7 +61,13 @@ class RepositoryHandler extends ExceptionHandler
         if ($exception instanceof ValidationException) {
             $response['status'] = Response::HTTP_FORBIDDEN;
             $response['body'] = (object)[];
-            $response['messages'] = collect($exception->errors())->flatten()->all();
+            $t = (array_map(function($data) {
+                return $data[0] ?? "";
+            }, $exception->errors()));
+
+            $response['messages'] = array_map(function($data) {
+                return $data[0] ?? "";
+            }, $exception->errors());
         }
 
         if ($exception instanceof UnauthorizedHttpException) {
