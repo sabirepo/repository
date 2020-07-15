@@ -65,7 +65,13 @@ Optionally, publish the package's configuration file by running:
 **Tip: don't forget to run `composer dump-autoload` afterwards.**
 
 ## Documentation
-
+### Response resource
+```
+return Repository::response($data);
+- $data: String | Object | Array
+$data interface: 
+$data['status'] | $data['messages'] | $data['body']
+```
 You'll find installation instructions and full documentation on : comming son....
  
  
