@@ -1,0 +1,25 @@
+{
+    "name": "sabirepo/repository",
+    "description": "Laravel repository",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tan Nguyen",
+            "email": "tannq@fabbi.io"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.1-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Sabirepo\\Repository\\": "src/"
+        }
+    },
+    "prefer-stable": true
+}
