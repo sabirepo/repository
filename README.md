@@ -40,7 +40,9 @@ composer require sabirepo/repository
 ## Setup repository
 ``` Create HMVC module
 	// Create folder default to app\repositories
-	php artisan make:repository 
+	php artisan make:repository {name} {--m}
+    
+    // example: php artisan make:repository User
 
 	// Add ModuleServiceProvider to config
 	// Laravel : config\app.php
