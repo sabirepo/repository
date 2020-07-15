@@ -20,7 +20,7 @@ composer require sabirepo/repository
 ## Lumen config
 ``` bash
  //bootstrap\app.php
- Add : $app->register(Sabirepo\Repository\BaseServiceProvider::class);
+ Add : $app->register(Sabirepo\Repository\Providers\RepositoryServiceProvider::class);
 ```
 
 ## Laravel config
@@ -28,12 +28,12 @@ composer require sabirepo/repository
   //config\app.php
  'providers' => [
 	...
-	Sabirepo\Repository\BaseServiceProvider::class,
+	Sabirepo\Repository\Providers\RepositoryServiceProvider::class,
  ],
 
  'aliases' => [
 	...
-	'Repository' => Sabirepo\Repository\Facades\RepositoryFacade::class,
+	'Repository' => Sabirepo\Repository\Facades\Repository::class,
  ],
 ```
 

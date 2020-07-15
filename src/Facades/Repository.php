@@ -3,7 +3,7 @@ namespace Sabirepo\Repository\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class RepositoryFacade extends Facade
+class Repository extends Facade
 {
     /**
      * Get the registered name of the component.

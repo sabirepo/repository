@@ -4,7 +4,7 @@ namespace Sabirepo\Repository\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Sabirepo\Repository\Exceptions\RepositoryHandler;
-class BaseServiceProvider extends ServiceProvider {
+class RepositoryServiceProvider extends ServiceProvider {
     public $commands = [
         \Sabirepo\Repository\Console\Commands\MakeRepository::class
     ];

@@ -87,12 +87,15 @@ class RepositoryBase {
     }
 
     /**
-     * @param $response
+     * @param $resource['body']
+     * @param $resource['status']
+     * @param $resource['message']
      * @param int $status
      * @return \Illuminate\Http\JsonResponse|object
      */
-    public function response(array $response, $status = 200)
+    public function response($resource, $status = 200)
     {
-        return (new ResponseResource($response))->response()->setStatusCode($status);
+        $status = (int) ($resource['status'] ?? $status);
+        return (new ResponseResource($resource))->response()->setStatusCode($status);
     }
 }

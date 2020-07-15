@@ -17,16 +17,26 @@ class ResponseResource extends JsonResource
      */
     public function toArray($request)
     {
-        $status = Arr::exists($this->resource, 'status') ? $this->resource['status'] : ResponseStatus::HTTP_INTERNAL_SERVER_ERROR;
-        $message = Arr::exists($this->resource, 'message') ? $this->resource['message'] : [];
-        $body = Arr::exists($this->resource, 'body') ? $this->resource['body'] : [];
+        if(is_object($this->resource)) {
+            $status = property_exists($this->resource, 'status') ? $this->resource->status : ResponseStatus::HTTP_OK;
+            $messages = property_exists($this->resource, 'messages') ?  $this->resource->messages : [];
+            $body = property_exists($this->resource, 'body') ?  $this->resource->body : $this->resource;
+        } elseif(is_array($this->resource)) {
+            $status = Arr::exists($this->resource, 'status') ? $this->resource['status'] : ResponseStatus::HTTP_OK;
+            $messages = Arr::exists($this->resource, 'messages') ? $this->resource['messages'] : [];
+            $body = Arr::exists($this->resource, 'body') ? $this->resource['body'] : [];
+        } else {
+            $status = ResponseStatus::HTTP_OK;
+            $messages = [];
+            $body = $this->resource;
+        }
 
         return [
             'head' => [
                 'status' => $status,
-                "message" => $message
+                "messages" => $messages
             ],
-            'body' => $body
+            'body' => $body,
         ];
     }
 

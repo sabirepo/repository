@@ -10,7 +10,7 @@ use Psy\Exception\FatalErrorException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
-use Sabirepo\Repository\Facades\RepositoryFacade as Repository;
+use Sabirepo\Repository\Facades\Repository as Repository;
 
 class RepositoryHandler extends ExceptionHandler
 {
@@ -61,25 +61,25 @@ class RepositoryHandler extends ExceptionHandler
         if ($exception instanceof ValidationException) {
             $response['status'] = Response::HTTP_FORBIDDEN;
             $response['body'] = (object)[];
-            $response['message'] = collect($exception->errors())->flatten()->all();
+            $response['messages'] = collect($exception->errors())->flatten()->all();
         }
 
         if ($exception instanceof UnauthorizedHttpException) {
             $response['status'] = Response::HTTP_UNAUTHORIZED;
             $response['body'] = (object)[];
-            $response['message'] = [__('message.unauthorized')];
+            $response['messages'] = [__('message.unauthorized')];
         }
 
         if ($exception instanceof FatalErrorException) {
             $response['status'] = Response::HTTP_INTERNAL_SERVER_ERROR;
             $response['body'] = (object)[];
-            $response['message'] = [__('message.internal_server_error')];
+            $response['messages'] = [__('message.internal_server_error')];
         }
 
         if ($exception instanceof QueryException) {
             $response['status'] = Response::HTTP_INTERNAL_SERVER_ERROR;
             $response['body'] = (object)[];
-            $response['message'] = [__('message.internal_server_error')];
+            $response['messages'] = [__('message.internal_server_error')];
         }
 
         return $response ?

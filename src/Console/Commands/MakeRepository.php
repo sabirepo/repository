@@ -98,7 +98,7 @@ class MakeRepository extends Command {
     {
         $className = Str::singular($dir);
         $path = $this->repoPath . DIRECTORY_SEPARATOR . $dir;
-        $di = strtolower($dir);
+        $di = strtolower(Str::plural($dir));
         $this->repo->createDirectoryIfNotExists($this->repoPath . DIRECTORY_SEPARATOR . $dir);
         $this->makeBaseTemplates([
             "{$className}Interface" => "ItemInterface",
