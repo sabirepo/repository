@@ -33,7 +33,7 @@ composer require sabirepo/repository
 
  'aliases' => [
 	...
-	'Repository' => Sabirepo\Repository\Facades\Repository::class,
+	'Repo' => Sabirepo\Repository\Facades\Repository::class,
  ],
 ```
 
@@ -65,12 +65,16 @@ Optionally, publish the package's configuration file by running:
 **Tip: don't forget to run `composer dump-autoload` afterwards.**
 
 ## Documentation
+### Visit: [Website](https://instance.asia)
 ### Response resource
 ```
-return Repository::response($data);
-- $data: String | Object | Array
-$data interface: 
-$data['status'] | $data['messages'] | $data['body']
+use Sabirepo\Repository\Facades\Repository as Repo;
+/**
+ * $data: String | Object | Array
+ * response interface: $data['status'] | $data['messages'] | $data['body']
+*/
+return Repo::response($data);
+
 ```
 You'll find installation instructions and full documentation on : comming son....
  
