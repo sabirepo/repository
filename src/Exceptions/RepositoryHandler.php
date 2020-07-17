@@ -59,7 +59,7 @@ class RepositoryHandler extends ExceptionHandler
     {
         $response = [];
         if ($exception instanceof ValidationException) {
-            $response['status'] = Response::HTTP_FORBIDDEN;
+            $response['status'] = Response::HTTP_UNPROCESSABLE_ENTITY; //422
             $response['body'] = (object)[];
             $t = (array_map(function($data) {
                 return $data[0] ?? "";
