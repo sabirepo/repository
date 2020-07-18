@@ -38,14 +38,24 @@ composer require sabirepo/repository
 ```
 
 ## Setup repository
-``` Create HMVC module
+``` Create repo 
 	// Create folder default to app\repositories
 	php artisan make:repository {name} {--m}
     
     // example: php artisan make:repository User
+    
+    // publish vendor
+    php artisan vendor:publish --tag=repository
 
-	// Add ModuleServiceProvider to config
-	// Laravel : config\app.php
+	// register provider
+    // add bindings to config/repository.php
+    /*
+     * Default binding
+     * [ RepoInterface::class => Repository::class ]
+     */
+    'bindings' => [
+        \App\Repositories\User\UserInterface::class => \App\Repositories\User\UserRepository::class,
+    ],
 
 ```
 
