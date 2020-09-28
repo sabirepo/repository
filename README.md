@@ -57,6 +57,7 @@ composer require sabirepo/repository
         \App\Repositories\User\UserInterface::class => \App\Repositories\User\UserRepository::class,
     ],
 
+
 ```
 
 ## Publish config
